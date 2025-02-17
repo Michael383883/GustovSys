@@ -1,0 +1,14 @@
+# Ignorar dependencias de Laravel y Next.js
+/backend/vendor
+/frontend/node_modules
+
+# Archivos de entorno
+/backend/.env
+/frontend/.env
+
+# Caché y logs
+storage/
+bootstrap/cache/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
