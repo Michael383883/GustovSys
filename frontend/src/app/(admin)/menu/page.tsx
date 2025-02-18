@@ -1,9 +1,9 @@
-"use client"; // ← Agregar esta línea
+"use client";
 
 import { useState } from "react";
 import MenuList from "./components/MenuList";
 import Link from "next/link";
-import AddDishModal from "./components/AddDishModal"; // Importamos el modal
+import AddDishModal from "./components/AddDishModal";
 
 export default function MenuPage() {
     const [isModalOpen, setIsModalOpen] = useState(false);
