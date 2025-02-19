@@ -19,7 +19,7 @@ export default function MenuItem({ name, price, image }: MenuItemProps) {
                 />
             </div>
             <h3 className="text-lg font-semibold text-gray-800">{name}</h3>
-            <p className="text-gray-700">Precio: ${price}</p>
+            <p className="text-gray-700">Precio: Bs{price}</p>
         </div>
     );
 }
