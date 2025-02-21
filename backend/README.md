@@ -40,8 +40,10 @@ Edita el archivo `.env` y configura la conexión a la base de datos:
   php artisan key:generate
 ```
 
-### 5. Migrar la Base de Datos con Datos Iniciales
+### 5. Migrar la Base de Datos con Datos Iniciales y crea la carpet
 ```sh
+  mkdir -p storage/app/public
+
   php artisan migrate --seed
 ```
 
