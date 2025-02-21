@@ -1,12 +1,9 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
-
+import Image from 'next/image';                
 const adminImage = '/logo.jpg';
-
 import MenuList from './(admin)/menu/components/MenuList';
-
 const Home = () => {
   return (
     <div className="bg-gray-100 min-h-screen flex flex-col items-center text-center relative overflow-hidden">

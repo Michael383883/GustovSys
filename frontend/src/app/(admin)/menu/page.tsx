@@ -1,12 +1,20 @@
-"use client";
+'use client'
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MenuList from "./components/MenuList";
-import Link from "next/link";
 import AddDishModal from "./components/AddDishModal";
+import { ToastContainer } from "react-toastify";
 
 export default function MenuPage() {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [refreshKey, setRefreshKey] = useState(0);
+
+    useEffect(() => {
+    }, [refreshKey]);
+
+    const refreshMenu = () => {
+        setRefreshKey(prevKey => prevKey + 1);
+    };
 
     return (
         <div className="p-6 bg-gray-100 min-h-screen pt-20">
@@ -20,7 +28,7 @@ export default function MenuPage() {
                     </p>
                 </div>
 
-                <MenuList />
+                <MenuList refreshKey={refreshKey} />
 
                 <div className="flex justify-center mt-8">
                     <button
@@ -30,8 +38,9 @@ export default function MenuPage() {
                     </button>
                 </div>
 
-                {isModalOpen && <AddDishModal onClose={() => setIsModalOpen(false)} />}
+                {isModalOpen && <AddDishModal onClose={() => setIsModalOpen(false)} refreshMenu={refreshMenu} />}
             </div>
+            <ToastContainer />
         </div>
     );
 }
