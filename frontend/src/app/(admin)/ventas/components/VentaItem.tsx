@@ -1,17 +1,23 @@
-import Image from "next/image";
 
 interface VentaItemProps {
     name: string;
     price: number;
     quantity: number;
+    imageUrl: string; 
     onUpdateQuantity: (amount: number) => void;
 }
 
-export default function VentaItem({ name, price, quantity, onUpdateQuantity }: VentaItemProps) {
+export default function VentaItem({ name, price, quantity, imageUrl, onUpdateQuantity }: VentaItemProps) {
     return (
         <div className="flex items-center justify-between bg-gray-50 p-4 rounded-lg shadow-sm">
             <div className="flex items-center space-x-6">
-                <Image src="/images/pailita.png" alt={name} width={80} height={80} className="rounded-lg" />
+                <img
+                    src={imageUrl}
+                    alt={name}
+                    width={80}
+                    height={80}
+                    className="rounded-lg"
+                />
                 <div>
                     <h3 className="text-lg font-semibold text-gray-800">{name}</h3>
                     <span className="text-gray-600">{price} BS</span>

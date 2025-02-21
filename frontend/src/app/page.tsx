@@ -2,11 +2,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-
 const adminImage = '/logo.jpg';
-
 import MenuList from './(admin)/menu/components/MenuList';
-
 const Home = () => {
   return (
     <div className="bg-gray-100 min-h-screen flex flex-col items-center text-center relative overflow-hidden">
@@ -45,7 +42,9 @@ const Home = () => {
         <p className="text-gray-600 text-lg mb-4">
           Explora los platillos más populares y administra tu catálogo de comidas fácilmente.
         </p>
-        <MenuList /> {/* Renderiza la lista de platos aquí */}
+        <MenuList />
+
+
       </section>
     </div>
   );
