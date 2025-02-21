@@ -5,6 +5,7 @@ import { fetchProducts } from "../../../../services/productService";
 interface MenuListProps {
     refreshKey: string;
 }
+
 interface Product {
     name: string;
     price: string;

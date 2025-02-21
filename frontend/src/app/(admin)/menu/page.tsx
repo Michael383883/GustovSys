@@ -28,7 +28,8 @@ export default function MenuPage() {
                     </p>
                 </div>
 
-                <MenuList refreshKey={refreshKey} />
+                {/* //<MenuList refreshKey={refreshKey} /> */}
+                <MenuList refreshKey={refreshKey.toString()} />
 
                 <div className="flex justify-center mt-8">
                     <button
