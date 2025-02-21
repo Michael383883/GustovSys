@@ -1,21 +1,29 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SalesTable from "./components/SalesTable";
 import ReportStats from "./components/ReportStats";
 
-const mockSalesData = [
-    { date: "2025-02-19", dish: "Charque", quantity: 5, total: 60 },
-    { date: "2025-02-19", dish: "Pique", quantity: 3, total: 42 },
-    { date: "2025-02-19", dish: "Pailitar", quantity: 2, total: 20 },
-    { date: "2025-02-19", dish: "Silpancho", quantity: 1, total: 15 },
-];
-
 export default function VentasReportPage() {
     const [reportGenerated, setReportGenerated] = useState(false);
+    const [salesData, setSalesData] = useState([]);
     const reportDate = new Date().toISOString().split("T")[0];
+
+    const fetchSalesData = async () => {
+        try {
+            const response = await fetch("http://localhost:8000/api/salestoday");
+            if (!response.ok) {
+                throw new Error("Error fetching sales data");
+            }
+            const data = await response.json();
+            setSalesData(data);
+        } catch (error) {
+            console.error("Error fetching sales data:", error);
+        }
+    };
 
     const handleGenerateReport = () => {
         setReportGenerated(true);
+        fetchSalesData();
     };
 
     return (
@@ -35,10 +43,10 @@ export default function VentasReportPage() {
             {reportGenerated && (
                 <div className="ml-6 flex-grow grid grid-cols-2 gap-6">
                     <div className="bg-white p-6 rounded-lg shadow-md h-fit">
-                        <SalesTable salesData={mockSalesData} />
+                        <SalesTable salesData={salesData} />
                     </div>
                     <div className="bg-white p-6 rounded-lg shadow-md h-fit">
-                        <ReportStats salesData={mockSalesData} />
+                        <ReportStats salesData={salesData} />
                     </div>
                 </div>
             )}
