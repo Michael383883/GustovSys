@@ -10,10 +10,10 @@ Antes de comenzar, asegúrate de tener instalados los siguientes requisitos en t
 
 ## Instalación y Configuración
 
-### 1. Clonar el Repositorio
+### 1. Verificar la ubicacion
 ```sh
-  git clone https://github.com/Michael383883/GustovSys.git
-  cd gustovSys
+  
+  verifique que estes hay =  gustovSys/backend
 ```
 
 ### 2. Instalar Dependencias
