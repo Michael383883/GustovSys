@@ -14,3 +14,4 @@ Route::get('/test', function () {
 
 Route::post('/sales', [SaleController::class, 'store']);
 Route::get('/sales', [SaleController::class, 'index']);
+Route::get('/salestoday', [SaleController::class, 'getTodaySales']);
